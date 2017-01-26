@@ -1,9 +1,9 @@
 package main.java.com.ecs.cor.rules;
 
+import java.util.List;
+
 import main.java.com.ecs.cor.OrderRuleHandler;
 import main.java.com.ecs.cor.models.OrderModel;
-
-import java.util.List;
 
 /**
  * @author emincansumer
@@ -17,6 +17,7 @@ public class InvalidEmailRuleHandler extends OrderRuleHandler {
         for (int i = 0; i < orders.size(); i++) {
             OrderModel order = orders.get(i);
             if (order != null && order.getEmail() != null && !order.getEmail().contains("@")) {
+                print("Removing invalid email orders...");
                 orders.remove(i);
             }
         }
